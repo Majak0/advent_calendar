@@ -1,17 +1,4 @@
 import re
-
-file = open('inputs/day1.txt', "r")
-line = file.readline()
-
-sum = 0
-while line:
-    line = ''.join(re.findall(r'\d+', line)) # Delete non numeric chars
-    add = line[0] + line[-1] # Create number from first and last digit of string
-    sum += int(add)
-    line = file.readline() # Next line
-file.close()
-#print("=============",sum,"=============")
-
 # ====================== part 2 ====================== #
 
 words = {
@@ -34,20 +21,19 @@ while line:
     index = 0
     while index < len(line):
         for word in words :
-            #print(line[index]," : ",word,line[index:index+len(word)]," = ",line[index:index+len(word)]==word, " - ",index+len(word) >= len(line)-index)
             if index+len(word) >= len(line)-index :
                 if line[index:]==word:
-                    print(line[index]," : ",word,line[index:index+len(word)]," = ",line[index:index+len(word)]==word)
                     line = line.replace(word, words[word],1)
             else :
                 if line[index:index+len(word)]==word:
                     line = line.replace(word, words[word],1)
         index+=1
-    #print(line)
+    print(line)
     line = ''.join(re.findall(r'\d+', line)) # Delete non numeric chars
     add = line[0] + line[-1] # Create number from first and last digit of string
-    #print(line," - ",line[0]," - ",line[-1]," : ",add,"\n------------------------\n")
+    print(line," - ",line[0]," - ",line[-1]," : ",add,"\n------------------------\n")
     sum += int(add)
+    line = False
     line = file.readline() # Next line
 file.close()
 print("=============",sum,"=============")
