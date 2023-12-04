@@ -2,7 +2,7 @@
 
 Here you can find my different codes for the advent of code
 ---
-Langages used :
+Langage used :
 - python
 
 Code Editor :
