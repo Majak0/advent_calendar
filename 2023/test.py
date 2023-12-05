@@ -36,4 +36,3 @@ while line:
     line = False
     line = file.readline() # Next line
 file.close()
-print("=============",sum,"=============")
