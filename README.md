@@ -1,4 +1,4 @@
-# Advent Calendar - 2023
+# Advent Calendar
 
 Here you can find my different codes for the advent of code
 ---
