@@ -8,11 +8,11 @@ if ($file) {
         $level = $line;
     }
     echo($largerMeasurements-1);
-    fclose($handle);
+    fclose($file);
 }
 */
 
-// ====================== day 3 : part 2 ====================== \\
+// ====================== day 1 : part 2 ====================== \\
 
 $file = fopen("inputs/day1.txt", "r");
 
