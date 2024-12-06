@@ -40,24 +40,23 @@ class TotalDistance {
     private static void completeArrays(String filename){
         try {
             File file = new File(filename);
-            Scanner scan = new Scanner(file);
-            while (scan.hasNextLine()) {
-                String line = scan.nextLine();
-                String[] exploded = line.trim().split("\\s+");
-                if (exploded.length == 2) {
-                    try {
-                        left.add(Integer.valueOf(exploded[0]));
-                        right.add(Integer.valueOf(exploded[1]));
-                    } catch (NumberFormatException e) {
-                        System.out.println("Erreur lors de la conversion : " + line);
+            try (Scanner scan = new Scanner(file)) {
+                while (scan.hasNextLine()) {
+                    String line = scan.nextLine();
+                    String[] exploded = line.trim().split("\\s+");
+                    if (exploded.length == 2) {
+                        try {
+                            left.add(Integer.valueOf(exploded[0]));
+                            right.add(Integer.valueOf(exploded[1]));
+                        } catch (NumberFormatException e) {
+                            System.out.println("Erreur lors de la conversion : " + line);
+                        }
+                    } else {
+                        System.out.println("Format incorrect : " + line);
                     }
-                } else {
-                    System.out.println("Format incorrect : " + line);
                 }
             }
-            scan.close();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
